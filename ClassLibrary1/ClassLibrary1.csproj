@@ -13,4 +13,14 @@
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="admin\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Models\Data.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

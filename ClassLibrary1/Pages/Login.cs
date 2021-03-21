@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace ClassLibrary1.Pages
 {
@@ -24,6 +25,7 @@ namespace ClassLibrary1.Pages
             // identify login buton and click on the login button
             IWebElement loginButton = driver.FindElement(By.XPath("//*[@id='loginForm']/form/div[3]/input[1]"));
             loginButton.Click();
+            Thread.Sleep(4000);
             // verify home page
             IWebElement helloHari = driver.FindElement(By.XPath("//*[@id='logoutForm']/ul/li/a"));
             if (helloHari.Text == "Hello hari!")

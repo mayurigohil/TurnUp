@@ -100,3 +100,4 @@ C:\Users\Dell\Documents\VB Feb 2021\FirstTests\ClassLibrary1\obj\Debug\netcoreap
 C:\Users\Dell\Documents\VB Feb 2021\FirstTests\ClassLibrary1\bin\Debug\netcoreapp3.1\SeleniumExtras.WaitHelpers.dll
 C:\Users\Dell\Documents\VB Feb 2021\FirstTests\ClassLibrary1\bin\Debug\netcoreapp3.1\Telerik.JustMock.dll
 C:\Users\Dell\Documents\VB Feb 2021\FirstTests\ClassLibrary1\bin\Debug\netcoreapp3.1\System.Security.Permissions.dll
+C:\Users\Dell\Documents\VB Feb 2021\FirstTests\ClassLibrary1\bin\Debug\netcoreapp3.1\Models\Data.csv

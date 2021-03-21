@@ -53,7 +53,7 @@ namespace ClassLibrary1.Pages
            
             //Go to last page
            WaitClass.ElementPresent(driver, "Xpath", "//*[@id='tmsGrid']/div[4]/a[4]/span");
-         // driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span")).Click;
+       
         IWebElement LastPage = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
          LastPage.Click();
 

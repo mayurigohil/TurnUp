@@ -9,15 +9,33 @@ namespace ClassLibrary1.Pages
 {
     class HomePage
     {
-        public void navigatehome(IWebDriver driver)
-        {
-            IWebElement admin = driver.FindElement(By.XPath("//*[@class='nav navbar-nav']//a[text()='Administration ']"));
-            admin.Click();
-            IWebElement time = driver.FindElement(By.XPath("//*[@class='nav navbar-nav']//a[text()='Time & Materials']"));
-            time.Click();
+        private IWebDriver driver;
+        //public void NavigateCustomer(IWebDriver driver)
+        //{
+        //    this.driver = driver;
+        //}
+        public  IWebElement admin => driver.FindElement(By.XPath("//a[normalize-space()='Administration']"));
 
-            WaitClass.ElementPresent(driver, "XPath", "//*[@id='tmsGrid']/div[4]/a[4]/span");
-         
+        public IWebElement time => driver.FindElement(By.XPath("//*[@class='nav navbar-nav']//a[text()='Time & Materials']"));
+
+        public IWebElement Customer => driver.FindElement(By.XPath("//a[normalize-space()='Customers']"));
+
+        public void NavigateTnM(IWebDriver driver)
+        {
+            this.driver = driver;
+            admin.Click();
+            time.Click();
+            WaitClass.ElementPresent(driver, "XPath", "//a[normalize-space()='Create New']");
         }
+
+        public void NavigateCustomer(IWebDriver driver)
+        {
+            this.driver = driver;
+            admin.Click();
+            Thread.Sleep(1000);
+            Customer.Click();
+            WaitClass.ElementPresent(driver, "XPath", "//a[normalize-space()='Create New']");
+        }
+
     }
 }

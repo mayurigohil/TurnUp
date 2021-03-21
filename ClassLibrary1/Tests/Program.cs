@@ -5,6 +5,8 @@ using ClassLibrary1.Pages;
 using OpenQA.Selenium;
 using NUnit.Framework;
 using ClassLibrary1.Utility;
+using System.Threading;
+using ClassLibrary1.Models;
 
 namespace ClassLibrary1.Tests
 {
@@ -17,14 +19,15 @@ namespace ClassLibrary1.Tests
         {
             Login loginObj = new Login();
             loginObj.loginpage(driver);
-            HomePage homeObj = new HomePage();
-            homeObj.navigatehome(driver);
+            
 
         }
 
         [Test]
         public void CreateTime()
         {
+            HomePage homeObj = new HomePage();
+            homeObj.NavigateTnM(driver);
             TnM tmObj = new TnM();
             tmObj.CreateTM(driver);
 
@@ -45,11 +48,24 @@ namespace ClassLibrary1.Tests
             tmObj2.DeleteTM(driver);
         }
 
+        [Test]
+        public void CreateCustomer()
+        {
+            HomePage homeObj1 = new HomePage();
+            homeObj1.NavigateCustomer(driver);
+            Customer CustObj = new Customer();
+            CustObj.CustomerPage(driver);
+            TestData Data = new TestData("Test", "Lastname", "fdssd", "1234567896", "2525252552", "ette@ggg.com", "123456", "Test address", "52", "auckland", "123122", "New Zealand");
+            Customer Edit = new Customer();
+            Edit.EditContact(driver,Data);
+        }
+
         [OneTimeTearDown]
         public void FinalSteps()
 
         {
-         //   driver.Quit();
+          Thread.Sleep(10000);
+          driver.Quit();
         }
     }
 }
