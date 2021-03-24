@@ -1,2 +1,4 @@
-firstname,lastname,pname, Phone,Mobile,email,fax,address,street,city,postcode,country
-Test2, Lastname,fdssd,1234567896,2525252552,ette@ggg.com,123456,Test address,52,auckland,123122,New Zealand
+firstname,lastname,pname, Phone,Mobile,email,fax,address,street,city,postcode,country,testname
+Test2, Lastname,fdssd,1234567896,2525252552,ette@ggg.com,123456,Test address,52,auckland,123122,New Zealand,tc1
+Test21, Lastname,fdssd,1234567896,2525252552,ette@ggg.com,123456,Test address,52,auckland,123122,New Zealand,tc2
+Test3, Lastname,fdssd,1234567896,2525252552,ette@ggg.com,123456,Test address,52,auckland,123122,New Zealand,tc3
