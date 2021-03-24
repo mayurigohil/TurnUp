@@ -8,7 +8,7 @@ using System.Text;
 namespace ClassLibrary1.Utility
 {
     class WaitClass
-    {
+    {  //Explicit Wait
         public static void ElementPresent(IWebDriver driver, String Locator, String LocatorValue)
         {
             try

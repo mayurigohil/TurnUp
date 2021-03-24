@@ -63,7 +63,7 @@ namespace ClassLibrary1.Pages
             Country.SendKeys(data.Country);
             SubmitButton.Click();
             //WaitClass.ElementPresent(driver, "Id", "BillingContactId");
-           // CheckBox.Click();
+            CheckBox.Click();
             SubmitButton.Click();
         }
     }

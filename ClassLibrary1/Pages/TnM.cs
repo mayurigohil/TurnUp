@@ -53,12 +53,13 @@ namespace ClassLibrary1.Pages
            
             //Go to last page
            WaitClass.ElementPresent(driver, "Xpath", "//*[@id='tmsGrid']/div[4]/a[4]/span");
-       
-        IWebElement LastPage = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
+            Thread.Sleep(1000);
+            IWebElement LastPage = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
          LastPage.Click();
 
             //WaitClass.ElementDisable(driver, "Xpath", "//*[@id='tmsGrid']/div[3]/table/tbody/tr[1]/td[1]");
-            Thread.Sleep(500);
+            //Implicit Wait
+            Thread.Sleep(1000);
 
             //Validate Saved data and print result
             Assert.Multiple(() =>
