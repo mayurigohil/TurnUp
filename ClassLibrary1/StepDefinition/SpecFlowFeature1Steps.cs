@@ -1,7 +1,10 @@
-﻿using ClassLibrary1.Pages;
+﻿using ClassLibrary1.Models;
+using ClassLibrary1.Pages;
 using ClassLibrary1.Utility;
+using LumenWorks.Framework.IO.Csv;
 using OpenQA.Selenium.Chrome;
 using System;
+using System.IO;
 using TechTalk.SpecFlow;
 
 namespace ClassLibrary1.StepDefinition
@@ -43,6 +46,33 @@ namespace ClassLibrary1.StepDefinition
         {
             TnM tmObj2 = new TnM();
             tmObj2.DeleteTM(driver);
+        }
+
+        [Given(@"Customer page")]
+        public void GivenCustomerPage()
+        {
+            HomePage homeObj1 = new HomePage();
+            homeObj1.NavigateCustomer(driver);
+        }
+
+        [Then(@"User should be able to Create new Customer record with valid data")]
+        public void ThenUserShouldBeAbleToCreateNewCustomerRecordWithValidData()
+        {
+            
+            Customer CustObj = new Customer();
+            CustObj.CustomerPage(driver);
+
+
+            string filePath = "Models\\Data.csv";
+            using (var csv = new CsvReader(new StreamReader(Path.Combine(AppDomain.CurrentDomain.BaseDirectory + filePath)), true))
+            {
+                //Iterating csv file
+                while (csv.ReadNextRecord())
+                {
+                    TestData Data = new TestData(csv[0], csv["Lastname"], "fdssd", "1234567896", "2525252552", "ette@ggg.com", "123456", "Test address", "52", "auckland", "123122", "New Zealand");
+                    CustObj.EditContact(driver, Data);
+                }
+            }
         }
 
     }

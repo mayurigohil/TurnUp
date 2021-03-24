@@ -68,10 +68,7 @@ namespace ClassLibrary1.Tests
                     CustObj.EditContact(driver, Data);
                 }
             }
-            
-            
-            
-           
+         
         }
 
 
