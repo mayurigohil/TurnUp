@@ -65,7 +65,7 @@ namespace ClassLibrary1.Tests
                 while (csv.ReadNextRecord())
                 {
                     TestData Data = new TestData(csv[0], csv["Lastname"], "fdssd", "1234567896", "2525252552", "ette@ggg.com", "123456", "Test address", "52", "auckland", "123122", "New Zealand");
-                    CustObj.EditContact(driver, Data);
+                    CustObj.EditContactDetails(driver, Data);
                 }
             }
          
@@ -91,7 +91,7 @@ namespace ClassLibrary1.Tests
             // ExcelHelper.TestDataCSV(TestData data);
             //  ReadData.TestDataCSV(data);
 
-            CustObj.EditContact(driver, data);
+            CustObj.EditContactDetails(driver, data);
         }
 
         public static IEnumerable CreateCustomerTestDataCSV()
@@ -110,15 +110,36 @@ namespace ClassLibrary1.Tests
             }
         }
 
+        [Test]
+        public void DeleteCustomr()
+        {
+            HomePage homeObj1 = new HomePage();
+            homeObj1.NavigateCustomer(driver);
+            Thread.Sleep(2000)
+            Customer CustObj1 = new Customer();
+            CustObj1.DeleteCustomer(driver);
+        }
 
+        [TearDown]
+        public void Teardown()
+        {
+            try
+            {
 
+                driver.TakeScreenshot(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "FailedTests"));
+            }
+            catch (Exception ex)
+            {
+                TestContext.WriteLine("Tear down  {0}", ex.ToString());
+            }
+        }
 
         [OneTimeTearDown]
         public void FinalSteps()
 
         {
-          Thread.Sleep(1000);
-          driver.Quit();
+           
+            driver.Quit();
         }
     }
 }
