@@ -25,6 +25,15 @@ namespace ClassLibrary1.Utility
                     wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.XPath(LocatorValue)));
                 }
             }
+           
+            catch (WebDriverTimeoutException)
+            { 
+                Assert.Fail("Time out Exception");
+            }
+            catch (StaleElementReferenceException)
+            {
+                Assert.Fail("Stale element"); 
+            }
             catch (Exception Ex)
             {
                 Assert.Fail("test case failed", Ex);

@@ -70,10 +70,18 @@ namespace ClassLibrary1.StepDefinition
                 while (csv.ReadNextRecord())
                 {
                     TestData Data = new TestData(csv[0], csv["Lastname"], "fdssd", "1234567896", "2525252552", "ette@ggg.com", "123456", "Test address", "52", "auckland", "123122", "New Zealand");
-                    CustObj.EditContact(driver, Data);
+                    CustObj.EditContactDetails(driver, Data);
                 }
             }
         }
+
+        [Then(@"User should be able to Delete Customer record with valid data")]
+        public void ThenUserShouldBeAbleToDeleteCustomerRecordWithValidData()
+        {
+            Customer CustObj1 = new Customer();
+            CustObj1.DeleteCustomer(driver);
+        }
+
 
     }
 }
